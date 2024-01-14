@@ -922,6 +922,12 @@ void setup()
     enc.setFastTimeout(30);
     enc.setEncReverse(ENCODER_REVERSE);
 
+    bme.setStandbyTime(STANDBY_500US);
+    bme.setFilter(FILTER_COEF_16);                     // Настраиваем коофициент фильтрации
+    bme.setTempOversampling(OVERSAMPLING_16);          // Настраиваем передискретизацию для датчика температуры
+    bme.setHumOversampling(OVERSAMPLING_16);          // Настраиваем передискретизацию для датчика давления
+    bme.setPressOversampling(MODULE_DISABLE);
+
     while (!bme.begin(0x76))
         ;
     while (analogRead(NTC_PIN) < ADC_MIN || analogRead(NTC_PIN) > ADC_MAX)
@@ -1077,7 +1083,7 @@ void loop()
                 displayPrint(&subMenuM);
             }
 
-            if (subMenuM.pointerUpdate || ((subMenuM.parentID == 0) && iDryer.data.flagScreenUpdate))
+            if (subMenuM.pointerUpdate || iDryer.data.flagScreenUpdate)
             {
                 screen(&subMenuM);
                 displayPrint(&subMenuM);

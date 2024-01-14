@@ -95,7 +95,7 @@ buzzer beeps every time the heater comes on
   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 6 // This is thermistor 0  /EPCOS 100K B57560G104F - 6
+#define TEMP_SENSOR_0 11 // This is thermistor 0  /EPCOS 100K B57560G104F - 6
 
 #define TMP_MIN 1
 #define TMP_MAX 120
@@ -168,7 +168,7 @@ Encoder direction
 0 - normal
 1 - reverse
  ********************/
-#define ENCODER_REVERSE 1
+#define ENCODER_REVERSE 0
 
 /**********************
 screen update time, change if you know what you're doing.
@@ -193,7 +193,7 @@ FAN PWM frequency
 Temporarily uncomment to perform a
 test at the specified PWM frequency
  *************************/
-#define PWM_TEST
+//#define PWM_TEST
 
 /**********************
 SERVO
